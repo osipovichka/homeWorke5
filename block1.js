@@ -65,14 +65,18 @@ function calcFactorialNumber(number) {
 
 //12. Посчитать количество нечетных элементов массива
 
-let randomNumber = 0;
-let array = [];
+function randomArray(quantityElements) {
+    let randomNumber = 0;
+    let arr = [];
 
-for (i = 0; i < 15; i++) {
-    randomNumber = Math.floor(Math.random() * 50);
-    array.push(randomNumber);
+    for (i = 0; i < quantityElements; i++) {
+        randomNumber = Math.floor(Math.random() * 50);
+        arr.push(randomNumber);
+    }
+
+    return arr;
 }
-console.log(array);
+let array = randomArray(15);
 
 function calcQuantityOddElementsАrray(arr) {
     let quantityElements = 0;
@@ -80,10 +84,10 @@ function calcQuantityOddElementsАrray(arr) {
     for (i = 0; i <= arr.length; i++) {
 
         if (i % 2 != 0) {
-            quantityElements ++;
+            quantityElements++;
         }
     }
 
     return quantityElements;
 };
-//console.log(calcQuantityOddElementsАrray(array));
+console.log(calcQuantityOddElementsАrray(array));
