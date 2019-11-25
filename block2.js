@@ -67,10 +67,10 @@ function calcBubbleSort(arr) {
 
         for (j = 0; j < arr.length - 1 - i; j++) {
 
-            if (arr[j] > arr[j+1]) {
+            if (arr[j] > arr[j + 1]) {
                 let a = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = a;
+                arr[j] = arr[j + 1];
+                arr[j + 1] = a;
                 wasSorting = true;
             }
         }
@@ -81,3 +81,38 @@ function calcBubbleSort(arr) {
 //console.log(calcBubbleSort(array));
 
 //15.Отсортировать массив ещё двумя методами (выбором (Select), вставками (Insert)) 
+
+function calcSelectSort(arr) {
+
+    for (i = 0; i < arr.length; i++) {
+        let minIndex = i;
+
+        for (j = i + 1; j < arr.length; j++) {
+
+            if (arr[minIndex] > arr[j]) {
+                minIndex = j;
+            }
+        }
+        if (i !== minIndex) {
+            let a = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = a;
+        }
+    }
+    return arr;
+}
+//console.log(calcSelectSort(array));
+
+function calcInsertSort(arr) {
+
+    for (i = 0; i < arr.length; i++) {
+        let element = arr[i];
+
+        for (j = i - 1; j >= 0 && arr[j] > element; j--) {
+            arr[j + 1] = arr[j];
+        }
+        arr[j + 1] = element;
+    }
+    return arr;
+}
+console.log(calcBubbleSort(array));
