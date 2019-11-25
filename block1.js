@@ -48,7 +48,7 @@ function calcSqrtSequential(number) {
     }
 
     if (number === 1 || number === 0) {
-        return number;
+        return number; //выход т.к. корень из 1 и 0 равен 1 и 0
     }
 
     for (i = 2; i < number; i++) {
@@ -68,7 +68,7 @@ function calcSqrtBenary(number) {
     }
 
     if (number === 1 || number === 0) {
-        return number;
+        return number; 
     }
 
     let start = 2;
@@ -121,44 +121,21 @@ function calcFactorialNumber(number) {
 //10. Вывести число, которое является зеркальным отображением последовательности цифр заданного числа 1547963248596524898525477353636555.
 
 
-// function getInvertedNumber(number) {
-//     let elements = 0; // Кол-во цифр
-//     let invertedNum = 0; //складывается перевернутое число
-//     let a = number;
-//     do {
-//         a /= 10;
-//         elements++;
-//     } while (a >= 1)
-
-//     while (elements !== 0) {
-//         let numeral = number % 10;
-//         invertedNum += numeral * Math.pow(10, elements - 1);// присваевает разряд последней цифре от первой
-//         number = Math.floor(number / 10);
-//         elements -= 1;
-//     } return invertedNum;
-// }
-// console.log(getInvertedNumber(584269872354861548796248521379));
-
-
 function getInvertedNumber(number) {
-    let elements = 0; // Кол-во элементов
-    let invertedNum = 0; //складывается перевернутое число
-    let a = number;
-    let b = []; // пробую через массивы
-
+    let element = 0; 
+    let num = number;
+    let invertedNum = 0; //складываю перев. число
     do {
-        a /= 10;
-        elements++;
-    } while (a >= 1)// кол-во элементов в массиве
+        num /= 10;
+        element++;
+    } while (num >= 1);
 
-    for (i = 0; i <= elements + 1; i++) {
-        let numeral = number % 10; 
-        b.push(numeral);
+    while (element !== 0) {
+        let numeral = number % 10;
+        invertedNum += numeral * Math.pow(10, element - 1);
         number = Math.floor(number / 10);
-        elements -= 1;
-    } return b;
-
-
-
+        element -= 1;
+    } return invertedNum;
 }
-console.log(getInvertedNumber(12584697325487623014));
+//console.log(getInvertedNumber(1578914563214876));
+
