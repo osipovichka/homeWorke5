@@ -80,7 +80,7 @@ function calcBubbleSort(arr) {
 }
 //console.log(calcBubbleSort(array));
 
-//15.Отсортировать массив ещё двумя методами (выбором (Select), вставками (Insert)) 
+//15.Отсортировать массив ещё двумя методами (выбором (Select), вставками (Insert))
 
 function calcSelectSort(arr) {
 
@@ -104,15 +104,19 @@ function calcSelectSort(arr) {
 //console.log(calcSelectSort(array));
 
 function calcInsertSort(arr) {
-
-    for (i = 0; i < arr.length; i++) {
+    
+    for (let i = 1; i < arr.length; i++) {
         let element = arr[i];
+        let jElement = i - 1;
 
-        for (j = i - 1; j >= 0 && arr[j] > element; j--) {
-            arr[j + 1] = arr[j];
+
+        while (jElement >= 0 && arr[jElement] > element) {
+            arr[jElement + 1] = arr[jElement];
+            jElement--;
         }
-        arr[j + 1] = element;
+        arr[jElement + 1] = element;
     }
+
     return arr;
 }
-console.log(calcBubbleSort(array));
+console.log(calcInsertSort(array));
