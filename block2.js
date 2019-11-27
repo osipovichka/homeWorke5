@@ -9,8 +9,8 @@ function randomArray(quantityElements) {
 
     return arr;
 }
-let array = randomArray(10);
-console.log(array);
+let array = randomArray(6);
+//console.log(array);
 
 //11. Сделать реверс массива (массив в обратном направлении)
 
@@ -49,15 +49,17 @@ function calcQuantityOddElementsАrray(arr) {
 //13. Поменять местами первую и вторую половину массива.
 
 function calcArray(arr) {
+    let el = Math.floor(arr.length / 2);
+    let er = arr.length % 2;
 
-    for (i = 0; i < arr.length / 2; i++) {
+    for (i = 0; i < el; i++) {
         let a = arr[i];
-        arr[i] = arr[arr.length - i - 1];
-        arr[arr.length - i - 1] = a;
+        arr[i] = arr[el+i+er];
+        arr[el+i+er] = a;
     }
     return arr;
 }
-//console.log(calcArray(array));
+//console.log(calcArray([1, 2, 3, 4, 5, 6, 7]));
 
 //14. Отсортировать массив пузырьком (Bubble)
 
@@ -104,7 +106,7 @@ function calcSelectSort(arr) {
 //console.log(calcSelectSort(array));
 
 function calcInsertSort(arr) {
-    
+
     for (let i = 1; i < arr.length; i++) {
         let element = arr[i];
         let jElement = i - 1;
@@ -119,4 +121,4 @@ function calcInsertSort(arr) {
 
     return arr;
 }
-console.log(calcInsertSort(array));
+// console.log(calcInsertSort(array));

@@ -52,23 +52,27 @@ function calcSqrtSequential(number) {
     }
 
     for (i = 2; i < number; i++) {
-        let square = Math.pow(i, 2);
+        let square = i * i;
         if (square === number) {
             return i;
         } else if (square > number) {
-            return --i;
+            let a = i - 1;
+            if (number - a * a > square - number) {
+                return i;
+            }
+            return a;
         }
     }
 }
-//console.log(calcSqrtSequential(17));
+//console.log(calcSqrtSequential(13));
 
-function calcSqrtBenary(number) {
+function calcSqrtBinary(number) {
     if (number < 0) {
         return 'Число не натуральное, введено не правильное значение';
     }
 
     if (number === 1 || number === 0) {
-        return number; 
+        return number;
     }
 
     let start = 2;
@@ -77,6 +81,9 @@ function calcSqrtBenary(number) {
     while (true) {
         let middle = start + Math.floor((end - start) / 2);
         if (middle === start) {
+            if (number - middle * middle > end * end - number) {
+                return end;
+            }
             return middle;
         }
         let squareMiddle = Math.pow(middle, 2);
@@ -89,7 +96,7 @@ function calcSqrtBenary(number) {
         }
     }
 }
-//console.log(calcSqrtBenary(1854))
+//console.log(calcSqrtBinary(12))
 
 //9. Посчитать сумму цифр заданного числа
 
@@ -122,7 +129,7 @@ function calcFactorialNumber(number) {
 
 
 function getInvertedNumber(number) {
-    let element = 0; 
+    let element = 0;
     let num = number;
     let invertedNum = 0; //складываю перев. число
     do {
